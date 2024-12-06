@@ -24,3 +24,4 @@ app.use(bodyParser.json());
 //Emable mongoose for your server
 const mongoose = require('mongoose');
 //Connect to cluster using mongoose
+mongoose.connect('mongodb+srv://admin:admin@cluster0.a06sv.mongodb.net/')
