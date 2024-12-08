@@ -8,10 +8,10 @@ const NavigationBar = () => {
   return (
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/">Home</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/header">Header</Nav.Link>
-              <Nav.Link href="/footer">Footer</Nav.Link>
+              <Nav.Link href="/addRecipe">Add Recipes</Nav.Link>
+              <Nav.Link href="/footer">Delete Recipes</Nav.Link>
             </Nav>
           </Container>
       </Navbar>
