@@ -9,8 +9,6 @@ const AddRecipe = () => {
     const [description, setDescription] = useState('')
     const [ingredients, setIngredients] = useState([])//Array
     const [steps, setSteps] = useState([])//Array
-    const [newIngredient, setNewIngredient] = useState(''); // New state for new ingredient
-    const [newStep, setNewStep] = useState(''); // New state for new step
     const [times, setTimes] = useState('')
     const [serves, setServes] = useState('')
     const [difficult, setDifficult] = useState('')
@@ -20,22 +18,6 @@ const AddRecipe = () => {
     const handleSubmit = (e) => {
         //Prevents the default behavior of an element from triggering
         e.preventDefault();
-
-        //If-statement used to add the last ingredient and step to the arrays if they are not already empty
-        //push() adds the specified elements to the end of an array
-        //.trim is used to remove empty white spaces
-         // Add new ingredient and step to the arrays if they're not empty
-        if (newIngredient.trim()) 
-        {
-            setIngredients(prevIngredients => [...prevIngredients, newIngredient.trim()]);
-            setNewIngredient(''); // Clear the input field
-        }
-  
-        if (newStep.trim()) 
-        {
-            setSteps(prevSteps => [...prevSteps, newStep.trim()]);
-            setNewStep(''); // Clear the input field
-        }
   
         const recipe = {name, description, ingredients, steps, times, serves, difficult, maincategory};
         //Debugging
@@ -52,7 +34,6 @@ const AddRecipe = () => {
     //Returns entered values once button is clicked
     return (
         <div>
-            <h3>Hello from create component!</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Add Recipe Name: </label>
@@ -74,16 +55,16 @@ const AddRecipe = () => {
                     <label>Add Recipe Ingredients: </label>
                     <input type="text"
                         className="form-control"
-                        value={newIngredient}
-                        onChange={(e) => { setNewIngredient(e.target.value) }}
+                        value={ingredients}
+                        onChange={(e) => { setIngredients(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Add Recipe Steps: </label>
                     <input type="text"
                         className="form-control"
-                        value={newStep}
-                        onChange={(e) => { setNewStep(e.target.value) }}
+                        value={steps}
+                        onChange={(e) => { setSteps(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">

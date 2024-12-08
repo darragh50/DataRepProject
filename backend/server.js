@@ -30,8 +30,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.a06sv.mongodb.net/Recipes')
 const recipeSchema = new mongoose.Schema({
   name:String,
   description:String,
-  ingredients:[String],//Array
-  steps:[String],//Array
+  ingredients:[{type: String}],//Array
+  steps:[{type: String}],//Array 
   times:String,//Could be stored as number but should only be used for display rather than any calculations(may change)
   serves:String,//Could be stored as number but should only be used for display rather than any calculations(may change)
   difficult:String,
