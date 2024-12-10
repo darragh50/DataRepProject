@@ -27,7 +27,7 @@ const Read = () => {
     <div>
       <h2>Recipe List</h2>
       {/**Return the Reload() function */}
-      <Movies myRecipes={data} ReloadData={Reload} />
+      <Recipes myRecipes={data} ReloadData={Reload} />
     </div>
   );
 }

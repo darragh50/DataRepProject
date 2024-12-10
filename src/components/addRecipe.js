@@ -6,6 +6,7 @@ const AddRecipe = () => {
     //Declare & set variables. Found in mongoDB cluster
     //useState used to add a state variable to my components
     const [name, setName] = useState('')
+    const [image, setImage] = useState('')
     const [description, setDescription] = useState('')
     const [ingredients, setIngredients] = useState([])//Array
     const [steps, setSteps] = useState([])//Array
@@ -19,7 +20,7 @@ const AddRecipe = () => {
         //Prevents the default behavior of an element from triggering
         e.preventDefault();
   
-        const recipe = {name, description, ingredients, steps, times, serves, difficult, maincategory};
+        const recipe = { name, image, description, ingredients, steps, times, serves, difficult, maincategory};
         //Debugging
         console.log(recipe);
 
@@ -41,6 +42,14 @@ const AddRecipe = () => {
                         className="form-control"
                         value={name}
                         onChange={(e) => { setName(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Add Recipe Image: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={image}
+                        onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">

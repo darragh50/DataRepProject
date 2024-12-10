@@ -5,6 +5,9 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Home from './components/home';
 import AddRecipe from './components/addRecipe';
+import EditRecipe from './components/editRecipe';
+import Read from './components/read';
+
 
 
 function App() {
@@ -14,9 +17,9 @@ function App() {
       <Routes>
         {/**Display the Footer component when the URL changes */}
         <Route path="/" element={<Home />} />
-        <Route path="/header" element={<Header />} />
-        <Route path="/footer" element={<Footer />} />
+        <Route path="/read" element={<Read />} />
         <Route path="/addRecipe" element={<AddRecipe />} />
+        <Route path="/editRecipe/:id" element={<EditRecipe />} />
       </Routes>
       <Footer />
     </Router>

@@ -9,6 +9,7 @@ import React from 'react';
    let { id } = useParams();
    //Set all variables
    const [name, setName] = useState('')
+   const [image, setImage] = useState('')
    const [description, setDescription] = useState('')
    const [ingredients, setIngredients] = useState([])//Array
    const [steps, setSteps] = useState([])//Array
@@ -24,6 +25,7 @@ import React from 'react';
      axios.get('http://localhost:4000/api/recipes/' + id)
          .then((response) => {
             setName(response.data.name);
+            setImage(response.data.image);
             setDescription(response.data.description);
             setIngredients(response.data.ingredients);
             setSteps(response.data.steps);
@@ -40,7 +42,7 @@ import React from 'react';
  //Send data entered to /read  
  const handleSubmit = (event) => {
      event.preventDefault();
-     const newRecipe = { id, name, ingredients, description, steps, times, serves, difficult, maincategory};
+     const newRecipe = { id, name, image, ingredients, description, steps, times, serves, difficult, maincategory};
      axios.put('http://localhost:4000/api/recipes/' + id, newRecipe)
          .then((res) => {
              console.log(res.data);
@@ -58,6 +60,14 @@ import React from 'react';
                         className="form-control"
                         value={name}
                         onChange={(e) => { setName(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Add Recipe Image: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={image}
+                        onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">

@@ -16,7 +16,7 @@ const handleDelete = (e) => {
   //Stops it being called multiple times
   e.preventDefault();
   //Call axios to use the http delete function and assign the url + movieID
-    axios.delete('http://localhost:4000/api/recipe/' + props.myRecipe._id)
+    axios.delete('http://localhost:4000/api/recipes/' + props.myRecipe._id)
         .then(() => {
             props.Reload(); //Refreshes the movie list by calling the Reload function passed down as a prop
         })
@@ -31,10 +31,11 @@ const handleDelete = (e) => {
         <Card.Header>{props.myRecipe.name}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
+            <img src={props.myRecipe.image} alt={props.myRecipe.name} />
             <footer>{props.myRecipe.maincategory}</footer>
           </blockquote>
         </Card.Body>
-        {/**Adds an "Edit" button to each movie item, allowing users to navigate to the edit page for that specific movie*/}
+        {/**Adds an "Edit" button to each recipe item, allowing users to navigate to the edit page for that specific recipe*/}
         <Link to={"/editRecipe/" + props.myRecipe._id} className="btn btn-primary">Edit</Link>
         {/**Button used to delete when clicked - "Danger" is the button style */}
         <Button variant="danger" onClick={handleDelete}>Delete</Button>
