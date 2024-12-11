@@ -14,6 +14,7 @@ const AddRecipe = () => {
     const [serves, setServes] = useState('')
     const [difficult, setDifficult] = useState('')
     const [maincategory, setMainCategory] = useState('')
+    const [message, setMessage] = useState('');
 
     //Used for when the user wants to submit the form
     const handleSubmit = (e) => {
@@ -26,10 +27,25 @@ const AddRecipe = () => {
 
         //Use axios to post data from above to the server
         axios.post('http://localhost:4000/api/recipes',recipe)
-        .then((res)=>
-            {console.log(res.data)})
-        .catch();
-    }
+        .then((res) => {
+            console.log(res.data);
+            setMessage('Recipe added successfully!');
+            //Clear the form 
+            setName('');
+            setImage('');
+            setDescription('');
+            setIngredients([]);
+            setSteps([]);
+            setTimes('');
+            setServes('');
+            setDifficult('');
+            setMainCategory('');
+        })
+        .catch((error) => {
+            console.error('Error adding recipe:', error);
+            setMessage('Failed to add the recipe. Please try again.');
+        });
+    };
 
     //Create text fields so user can input values
     //Returns entered values once button is clicked
@@ -113,6 +129,7 @@ const AddRecipe = () => {
                     <input type="submit" value="Add Recipe" className="submit-button"></input>
                 </div>
             </form>
+            {message && <div className="message">{message}</div>}
         </div>
     );
 }

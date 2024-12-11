@@ -25,23 +25,38 @@ const handleDelete = (e) => {
         });
 };
 
-  return (
-    <div>
-      <Card>
-        <Card.Header>{props.myRecipe.name}</Card.Header>
-        <Card.Body>
-          <blockquote className="blockquote mb-0">
-            <img src={props.myRecipe.image} alt={props.myRecipe.name} />
-            <footer>{props.myRecipe.maincategory}</footer>
-          </blockquote>
-        </Card.Body>
-        {/**Adds an "Edit" button to each recipe item, allowing users to navigate to the edit page for that specific recipe*/}
-        <Link to={"/editRecipe/" + props.myRecipe._id} className="btn btn-primary">Edit</Link>
-        {/**Button used to delete when clicked - "Danger" is the button style */}
-        <Button variant="danger" onClick={handleDelete}>Delete</Button>
+return (
+  <div className="recipe-item">
+      <Card className="recipe-card">
+          <Card.Header style={{ backgroundColor: '#ff6347', color: 'white' }}>
+              <h5>{props.myRecipe.name}</h5>
+          </Card.Header>
+          <Card.Body>
+              <blockquote className="blockquote mb-0">
+                {/**<Strong> used for styling (bold) */}
+                  <img src={props.myRecipe.image} alt={props.myRecipe.name} className="recipe-image" />
+                   <p><strong>Description:</strong> {props.myRecipe.description}</p>
+                   <p><strong>Ingredients:</strong> {props.myRecipe.ingredients.join(', ')}</p>
+                   <p><strong>Steps:</strong> {props.myRecipe.steps.join(', ')}</p>
+                   <p><strong>Cooking Time:</strong> {props.myRecipe.times} mins</p>
+                   <p><strong>Serves:</strong> {props.myRecipe.serves}</p>
+                   <p><strong>Difficulty:</strong> {props.myRecipe.difficult}</p>
+                 <footer className="recipe-category">
+                    <strong>Category:</strong> {props.myRecipe.maincategory}
+                 </footer>
+              </blockquote>
+          </Card.Body>
+          <Card.Footer>
+              <div className="d-flex justify-content-between">
+                  {/**Adds an "Edit" button to each recipe item, allowing users to navigate to the edit page for that specific recipe*/}
+                  <Link to={"/editRecipe/" + props.myRecipe._id} className="btn btn-primary">Edit</Link>
+                  {/**Button used to delete when clicked - "Danger" is the button style */}
+                  <Button variant="danger" onClick={handleDelete}>Delete</Button>
+              </div>
+          </Card.Footer>
       </Card>
-    </div>
-  );
+  </div>
+);
 }
 
 export default RecipeItem;
