@@ -34,7 +34,8 @@ const AddRecipe = () => {
     //Create text fields so user can input values
     //Returns entered values once button is clicked
     return (
-        <div>
+        <div className="add-recipe-container">
+         <h1>Add a New Recipe</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Add Recipe Name: </label>
@@ -108,8 +109,8 @@ const AddRecipe = () => {
                         onChange={(e) => { setMainCategory(e.target.value) }}
                     />
                 </div>
-                <div>
-                    <input type="submit" value="Add Recipe"></input>
+                <div className="form-submit">
+                    <input type="submit" value="Add Recipe" className="submit-button"></input>
                 </div>
             </form>
         </div>

@@ -7,7 +7,7 @@ import Home from './components/home';
 import AddRecipe from './components/addRecipe';
 import EditRecipe from './components/editRecipe';
 import Read from './components/read';
-
+import './App.css';
 
 
 function App() {
