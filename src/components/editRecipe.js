@@ -52,7 +52,8 @@ import React from 'react';
 
  //Update values entered by user. Same form as addRecipe.js except for line 120
  return (
-     <div>
+    <div className="edit-recipe-container">
+      <h1>Edit Recipe</h1>
          <form onSubmit={handleSubmit}>
          <div className="form-group">
                     <label>Add Recipe Name: </label>
@@ -126,8 +127,8 @@ import React from 'react';
                         onChange={(e) => { setMainCategory(e.target.value) }}
                     />
                 </div>
-             <div className="form-group">
-                 <input type="submit" value="Edit Recipe" className="btn btn-primary" />
+             <div className="form-submit">
+                 <input type="submit" value="Edit Recipe" className="submit-button" />
              </div>
          </form>
      </div>

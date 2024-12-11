@@ -170,6 +170,55 @@
   box-shadow: 0 0 5px rgba(255, 99, 71, 0.8);
 }
 
+/*CSS for editRecipe.js*/
+.edit-recipe-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-recipe-container .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-recipe-container label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.edit-recipe-container .form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.edit-recipe-container .form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.edit-recipe-container .submit-button {
+  background-color: #ff6347;  
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-recipe-container .submit-button:hover {
+  background-color: #e55347;  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
